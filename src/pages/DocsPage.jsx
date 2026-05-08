@@ -325,7 +325,7 @@ export default function DocsPage() {
                             GitHub
                         </a>
                         <a
-                            href="https://your-domain.example"
+                            href="https://netscope-inky.vercel.app/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="button button-secondary"
