@@ -58,7 +58,7 @@ export default function Header() {
                 </nav>
 
                 <motion.a
-                    href="https://github.com/your-username/netscope"
+                    href="https://github.com/TursunkulovKhabib/netscope"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="header-cta"
