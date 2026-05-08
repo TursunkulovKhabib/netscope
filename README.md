@@ -1,16 +1,99 @@
-# React + Vite
+# NetScope
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**NetScope** — учебный веб-проект по сетевым технологиям и сетевой безопасности.
 
-Currently, two official plugins are available:
+Сайт посвящён базовым принципам работы компьютерных сетей, сетевым протоколам и защите данных в интернете. Проект сделан в формате компактного современного веб-сайта с понятной структурой и отдельными тематическими страницами.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## О проекте
 
-## React Compiler
+NetScope помогает в простой и наглядной форме изучить:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- модель OSI;
+- стек TCP/IP;
+- протоколы TCP и UDP;
+- DNS;
+- HTTP и HTTPS;
+- основы сетевой безопасности;
+- TLS, сертификаты и MITM-атаки.
 
-## Expanding the ESLint configuration
+## Страницы сайта
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Сайт состоит из 4 основных страниц:
+
+- **Главная** — обзор проекта и ключевых тем;
+- **Теория** — основные понятия и протоколы;
+- **Безопасность** — защита трафика и риски в сети;
+- **Документация** — описание проекта и его структуры.
+
+## Технологии
+
+| Категория | Используется |
+|---------|-------------|
+| Frontend | React, Vite |
+| Routing | React Router |
+| Animations | Framer Motion |
+| Styling | CSS |
+| Deployment | Docker, Nginx |
+
+## Структура проекта
+
+```bash
+netscope/
+├── public/
+│   ├── favicon.svg
+│   └── icons.svg
+├── src/
+│   ├── components/
+│   │   ├── Header.jsx
+│   │   └── Footer.jsx
+│   ├── pages/
+│   │   ├── HomePage.jsx
+│   │   ├── TheoryPage.jsx
+│   │   ├── SecurityPage.jsx
+│   │   └── DocsPage.jsx
+│   ├── styles/
+│   │   └── global.css
+│   ├── App.jsx
+│   └── main.jsx
+├── Dockerfile
+├── docker-compose.yml
+├── nginx.conf
+├── package.json
+└── README.md
+```
+
+## Установка и запуск
+
+### Установка зависимостей
+
+```bash
+npm install
+```
+
+### Запуск проекта
+
+```bash
+npm run dev
+```
+
+### Дополнительные пакеты
+
+```bash
+npm install react-router-dom framer-motion
+```
+
+## Сборка
+
+```bash
+npm run build
+```
+
+## Docker
+
+```bash
+docker compose up --build
+```
+
+## Автор проекта
+
+**Турсункулов Хабибулло Дилшодович ВШПИ 2 курс**
