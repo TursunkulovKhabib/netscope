@@ -1262,3 +1262,39 @@ pre {
         scroll-behavior: auto !important;
     }
 }
+
+/* Firefox fix */
+.feature-card,
+.protocol-card,
+.flow-card,
+.stat-card,
+.layer-card,
+.info-panel,
+.hero-panel,
+.compare-table,
+.threat-box,
+.cta-card {
+    isolation: isolate;
+}
+
+.button,
+.header-cta,
+.nav-link {
+    position: relative;
+    z-index: 2;
+    isolation: isolate;
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+    .feature-card,
+    .protocol-card,
+    .flow-card,
+    .stat-card,
+    .layer-card,
+    .info-panel,
+    .hero-panel,
+    .threat-box,
+    .cta-card {
+        background: rgba(14, 24, 36, 0.97);
+    }
+}
