@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 const navItems = [
     { to: "/", label: "Главная" },
     { to: "/theory", label: "Теория" },
+    { to: "/ip", label: "IP-адресация" },
+    { to: "/routing", label: "Маршрутизация" },
     { to: "/security", label: "Безопасность" },
     { to: "/docs", label: "Документация" },
 ];
