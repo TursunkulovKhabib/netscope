@@ -310,8 +310,9 @@ export default function DocsPage() {
                 <div className="cta-card">
                     <div>
                         <p className="section-kicker">Ссылки</p>
-                        <h2>Кнопки</h2>
+                        <h2>Полезные ссылки</h2>
                         <p className="section-description">
+                            Здесь собраны основные ссылки на исходный код проекта и опубликованную версию сайта.
                         </p>
                     </div>
 

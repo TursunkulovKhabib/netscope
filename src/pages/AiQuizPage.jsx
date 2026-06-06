@@ -2,14 +2,14 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const TOPICS = [
-    { id: "osi",      label: "OSI",           icon: "🔗" },
-    { id: "tcpip",   label: "TCP/IP",        icon: "📡" },
-    { id: "dns",     label: "DNS",           icon: "🌐" },
-    { id: "http",    label: "HTTP/HTTPS",    icon: "🔒" },
-    { id: "ip",      label: "IP-адресация",  icon: "🗺️" },
-    { id: "routing", label: "Маршрутизация", icon: "↗️" },
-    { id: "security",label: "Безопасность",  icon: "🛡️" },
-    { id: "tls",     label: "TLS/MITM",      icon: "⚡" },
+    { id: "osi",      label: "OSI" },
+    { id: "tcpip",    label: "TCP/IP" },
+    { id: "dns",      label: "DNS" },
+    { id: "http",     label: "HTTP/HTTPS" },
+    { id: "ip",       label: "IP-адресация" },
+    { id: "routing",  label: "Маршрутизация" },
+    { id: "security", label: "Безопасность" },
+    { id: "tls",      label: "TLS/MITM" },
 ];
 
 const DIFFICULTIES = [
@@ -55,8 +55,8 @@ function ProgressBar({ current, total }) {
 function ScoreRing({ percent }) {
     const color =
         percent >= 80 ? "var(--color-success)"
-        : percent >= 50 ? "var(--color-gold)"
-        : "var(--color-notification)";
+            : percent >= 50 ? "var(--color-gold)"
+                : "var(--color-notification)";
     return (
         <div className="quiz-score-ring" style={{ "--ring-color": color, "--ring-pct": `${percent * 3.6}deg` }}>
             <div className="quiz-score-inner">
@@ -139,7 +139,7 @@ ${extraPrompt ? `- Дополнительно: ${extraPrompt}` : ""}
             const parsed = JSON.parse(match[0]);
             setQuestions(parsed); setAnswers({}); setPhase("quiz");
         } catch (e) {
-            setError(e.message || "Ошибка генерации. Проверь API-ключ."); setPhase("form");
+            setError(e.message || "Ошибка генерации. Попробуй повторить запрос позже."); setPhase("form");
         }
     };
 
@@ -223,7 +223,7 @@ ${extraPrompt ? `- Дополнительно: ${extraPrompt}` : ""}
                                 </div>
                                 <div className="quiz-history-meta">
                                     <span>{h.score}/{h.total} верных</span>
-                                    <span>⏱ {formatTime(h.time)}</span>
+                                    <span>{formatTime(h.time)}</span>
                                     <span className="quiz-history-date">{h.date}</span>
                                 </div>
                             </div>
@@ -251,7 +251,6 @@ ${extraPrompt ? `- Дополнительно: ${extraPrompt}` : ""}
                                             className={`quiz-chip ${selectedTopics.includes(t.id) ? "quiz-chip-active" : ""}`}
                                             onClick={() => toggleTopic(t.id)}
                                         >
-                                            <span className="quiz-chip-icon">{t.icon}</span>
                                             {t.label}
                                         </button>
                                     ))}
@@ -336,7 +335,7 @@ ${extraPrompt ? `- Дополнительно: ${extraPrompt}` : ""}
 
                             {error && (
                                 <motion.p className="quiz-error" style={{ gridColumn: "1/-1" }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                                    ⚠️ {error}
+                                    {error}
                                 </motion.p>
                             )}
 
@@ -348,7 +347,7 @@ ${extraPrompt ? `- Дополнительно: ${extraPrompt}` : ""}
                                 >
                                     Сгенерировать тест →
                                 </button>
-                                <p className="quiz-hint">Генерация занимает 5–15 секунд. Требуется OPENAI_API_KEY на сервере.</p>
+                                <p className="quiz-hint">Генерация занимает 5–15 секунд. Если сервис временно недоступен, попробуй повторить запрос позже.</p>
                             </motion.div>
 
                         </div>
@@ -363,7 +362,7 @@ ${extraPrompt ? `- Дополнительно: ${extraPrompt}` : ""}
                         <p className="quiz-hint">Анализирую темы и подбираю вопросы...</p>
                         <div className="quiz-loading-chips">
                             {TOPICS.filter(t => selectedTopics.includes(t.id)).map(t => (
-                                <span key={t.id} className="small-chip">{t.icon} {t.label}</span>
+                                <span key={t.id} className="small-chip">{t.label}</span>
                             ))}
                         </div>
                     </motion.div>
@@ -380,7 +379,7 @@ ${extraPrompt ? `- Дополнительно: ${extraPrompt}` : ""}
                                 <ProgressBar current={answeredCount} total={questions.length} />
                             </div>
                             <div className="quiz-sticky-right">
-                                <div className="quiz-timer">⏱ {formatTime(elapsed)}</div>
+                                <div className="quiz-timer">{formatTime(elapsed)}</div>
                                 <button className="button button-secondary quiz-btn-sm" onClick={handleReset}>Отмена</button>
                                 <button
                                     className="button button-primary quiz-btn-sm"
@@ -434,12 +433,20 @@ ${extraPrompt ? `- Дополнительно: ${extraPrompt}` : ""}
                         <motion.div className="quiz-score-card" variants={reveal} custom={0}>
                             <ScoreRing percent={scorePercent} />
                             <div className="quiz-score-text">
-                                <h2>{scorePercent >= 80 ? "Отличный результат! 🎉" : scorePercent >= 50 ? "Неплохо, но есть что повторить" : "Стоит повторить материал 📚"}</h2>
+                                <h2>
+                                    {scorePercent >= 80
+                                        ? "Отличный результат"
+                                        : scorePercent >= 50
+                                            ? "Неплохо, но есть что повторить"
+                                            : "Стоит повторить материал"}
+                                </h2>
                                 <p className="section-description">
                                     Правильных ответов: <strong>{score}</strong> из <strong>{total}</strong> · Время: <strong>{formatTime(elapsed)}</strong>
                                 </p>
                                 <div className="quiz-result-chips">
-                                    {TOPICS.filter(t => selectedTopics.includes(t.id)).map(t => <span key={t.id} className="small-chip">{t.icon} {t.label}</span>)}
+                                    {TOPICS.filter(t => selectedTopics.includes(t.id)).map(t => (
+                                        <span key={t.id} className="small-chip">{t.label}</span>
+                                    ))}
                                     <span className="small-chip">{DIFFICULTIES.find(d => d.id === difficulty)?.label}</span>
                                 </div>
                             </div>
@@ -475,7 +482,7 @@ ${extraPrompt ? `- Дополнительно: ${extraPrompt}` : ""}
                                                 );
                                             })}
                                         </div>
-                                        {q.explanation && <p className="quiz-explanation">💡 {q.explanation}</p>}
+                                        {q.explanation && <p className="quiz-explanation">{q.explanation}</p>}
                                     </motion.article>
                                 );
                             })}

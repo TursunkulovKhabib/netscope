@@ -22,7 +22,7 @@ export default async function handler(req) {
 
     const { systemPrompt, userPrompt } = body;
 
-    const openaiRes = await fetch("https://api.openai.com/v1/chat/completions", {
+    const openaiRes = await fetch("https://api.proxyapi.ru/openai/v1/chat/completions", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

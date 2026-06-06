@@ -7,7 +7,7 @@ const navItems = [
     { to: "/ip",      label: "IP-адресация" },
     { to: "/routing", label: "Маршрутизация" },
     { to: "/security",label: "Безопасность" },
-    { to: "/quiz",    label: "🤖 AI Quiz" },
+    { to: "/quiz",    label: "AI Quiz" },
     { to: "/docs",    label: "Документация" },
 ];
 
