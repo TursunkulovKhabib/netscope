@@ -6,6 +6,8 @@ import Footer from "./components/Footer";
 
 import HomePage from "./pages/HomePage";
 import TheoryPage from "./pages/TheoryPage";
+import IpPage from "./pages/IpPage";
+import RoutingPage from "./pages/RoutingPage";
 import SecurityPage from "./pages/SecurityPage";
 import DocsPage from "./pages/DocsPage";
 
@@ -78,6 +80,22 @@ export default function App() {
                             element={
                                 <AnimatedPage>
                                     <TheoryPage />
+                                </AnimatedPage>
+                            }
+                        />
+                        <Route
+                            path="/ip"
+                            element={
+                                <AnimatedPage>
+                                    <IpPage />
+                                </AnimatedPage>
+                            }
+                        />
+                        <Route
+                            path="/routing"
+                            element={
+                                <AnimatedPage>
+                                    <SecurityPage />
                                 </AnimatedPage>
                             }
                         />
