@@ -2,12 +2,13 @@ import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const navItems = [
-    { to: "/", label: "Главная" },
-    { to: "/theory", label: "Теория" },
-    { to: "/ip", label: "IP-адресация" },
+    { to: "/",        label: "Главная" },
+    { to: "/theory",  label: "Теория" },
+    { to: "/ip",      label: "IP-адресация" },
     { to: "/routing", label: "Маршрутизация" },
-    { to: "/security", label: "Безопасность" },
-    { to: "/docs", label: "Документация" },
+    { to: "/security",label: "Безопасность" },
+    { to: "/quiz",    label: "🤖 AI Quiz" },
+    { to: "/docs",    label: "Документация" },
 ];
 
 export default function Header() {
@@ -28,7 +29,6 @@ export default function Header() {
                         <span className="brand-mark-core" />
                         <span className="brand-mark-ring" />
                     </motion.div>
-
                     <div className="brand-copy">
                         <span className="brand-title">NetScope</span>
                         <span className="brand-subtitle">Сетевые технологии и безопасность</span>
@@ -41,17 +41,11 @@ export default function Header() {
                             key={item.to}
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{
-                                duration: 0.35,
-                                delay: 0.08 * index,
-                                ease: [0.16, 1, 0.3, 1],
-                            }}
+                            transition={{ duration: 0.35, delay: 0.07 * index, ease: [0.16, 1, 0.3, 1] }}
                         >
                             <NavLink
                                 to={item.to}
-                                className={({ isActive }) =>
-                                    isActive ? "nav-link nav-link-active" : "nav-link"
-                                }
+                                className={({ isActive }) => isActive ? "nav-link nav-link-active" : "nav-link"}
                             >
                                 {item.label}
                             </NavLink>
@@ -61,8 +55,7 @@ export default function Header() {
 
                 <motion.a
                     href="https://github.com/TursunkulovKhabib/netscope"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target="_blank" rel="noopener noreferrer"
                     className="header-cta"
                     whileHover={{ y: -2, scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}

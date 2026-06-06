@@ -2,10 +2,13 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const footerLinks = [
-    { to: "/", label: "Главная" },
-    { to: "/theory", label: "Теория" },
-    { to: "/security", label: "Безопасность" },
-    { to: "/docs", label: "Документация" },
+    { to: "/",        label: "Главная" },
+    { to: "/theory",  label: "Теория" },
+    { to: "/ip",      label: "IP-адресация" },
+    { to: "/routing", label: "Маршрутизация" },
+    { to: "/security",label: "Безопасность" },
+    { to: "/quiz",    label: "AI Quiz" },
+    { to: "/docs",    label: "Документация" },
 ];
 
 export default function Footer() {
@@ -23,11 +26,10 @@ export default function Footer() {
                         <span className="footer-logo-dot" />
                         <span className="footer-logo-line" />
                     </div>
-
                     <h3>NetScope</h3>
                     <p>
-                        Учебный сайт по сетевым технологиям, протоколам, HTTPS, TLS и
-                        базовой сетевой безопасности.
+                        Учебный сайт по сетевым технологиям, протоколам, HTTPS, TLS,
+                        сетевой безопасности и AI-тестированию.
                     </p>
                 </motion.div>
 
@@ -41,9 +43,7 @@ export default function Footer() {
                     <h4>Навигация</h4>
                     <ul className="footer-links">
                         {footerLinks.map((item) => (
-                            <li key={item.to}>
-                                <Link to={item.to}>{item.label}</Link>
-                            </li>
+                            <li key={item.to}><Link to={item.to}>{item.label}</Link></li>
                         ))}
                     </ul>
                 </motion.div>
@@ -58,17 +58,11 @@ export default function Footer() {
                     <h4>Проект</h4>
                     <ul className="footer-links">
                         <li>
-                            <a
-                                href="https://github.com/TursunkulovKhabib/netscope"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
+                            <a href="https://github.com/TursunkulovKhabib/netscope" target="_blank" rel="noopener noreferrer">
                                 GitHub
                             </a>
                         </li>
-                        <li>
-                            <Link to="/docs">Описание функционала</Link>
-                        </li>
+                        <li><Link to="/docs">Описание функционала</Link></li>
                         <li>
                             <span className="footer-text-muted">React + Vite + Motion + Docker</span>
                         </li>
