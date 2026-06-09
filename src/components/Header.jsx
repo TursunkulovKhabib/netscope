@@ -2,13 +2,14 @@ import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const navItems = [
-    { to: "/",        label: "Главная" },
-    { to: "/theory",  label: "Теория" },
-    { to: "/ip",      label: "IP-адресация" },
-    { to: "/routing", label: "Маршрутизация" },
-    { to: "/security",label: "Безопасность" },
-    { to: "/quiz",    label: "AI Quiz" },
-    { to: "/docs",    label: "Документация" },
+    { to: "/",          label: "Главная" },
+    { to: "/theory",    label: "Теория" },
+    { to: "/ip",        label: "IP-адресация" },
+    { to: "/routing",   label: "Маршрутизация" },
+    { to: "/security",  label: "Безопасность" },
+    { to: "/quiz",      label: "AI Quiz" },
+    { to: "/glossary",  label: "Глоссарий" },
+    { to: "/docs",      label: "Документация" },
 ];
 
 export default function Header() {

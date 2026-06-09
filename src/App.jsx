@@ -4,13 +4,14 @@ import { AnimatePresence, motion } from "framer-motion";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-import HomePage    from "./pages/HomePage";
-import TheoryPage  from "./pages/TheoryPage";
-import IpPage      from "./pages/IpPage";
-import RoutingPage from "./pages/RoutingPage";
+import HomePage     from "./pages/HomePage";
+import TheoryPage   from "./pages/TheoryPage";
+import IpPage       from "./pages/IpPage";
+import RoutingPage  from "./pages/RoutingPage";
 import SecurityPage from "./pages/SecurityPage";
-import AiQuizPage  from "./pages/AiQuizPage";
-import DocsPage    from "./pages/DocsPage";
+import AiQuizPage   from "./pages/AiQuizPage";
+import GlossaryPage from "./pages/GlossaryPage";
+import DocsPage     from "./pages/DocsPage";
 
 const pageVariants = {
     initial: { opacity: 0, y: 16, filter: "blur(8px)" },
@@ -45,13 +46,14 @@ export default function App() {
             <main className="container main-content">
                 <AnimatePresence mode="wait">
                     <Routes location={location} key={location.pathname}>
-                        <Route path="/"         element={<AnimatedPage><HomePage /></AnimatedPage>} />
-                        <Route path="/theory"   element={<AnimatedPage><TheoryPage /></AnimatedPage>} />
-                        <Route path="/ip"       element={<AnimatedPage><IpPage /></AnimatedPage>} />
-                        <Route path="/routing"  element={<AnimatedPage><RoutingPage /></AnimatedPage>} />
-                        <Route path="/security" element={<AnimatedPage><SecurityPage /></AnimatedPage>} />
-                        <Route path="/quiz"     element={<AnimatedPage><AiQuizPage /></AnimatedPage>} />
-                        <Route path="/docs"     element={<AnimatedPage><DocsPage /></AnimatedPage>} />
+                        <Route path="/"          element={<AnimatedPage><HomePage /></AnimatedPage>} />
+                        <Route path="/theory"    element={<AnimatedPage><TheoryPage /></AnimatedPage>} />
+                        <Route path="/ip"        element={<AnimatedPage><IpPage /></AnimatedPage>} />
+                        <Route path="/routing"   element={<AnimatedPage><RoutingPage /></AnimatedPage>} />
+                        <Route path="/security"  element={<AnimatedPage><SecurityPage /></AnimatedPage>} />
+                        <Route path="/quiz"      element={<AnimatedPage><AiQuizPage /></AnimatedPage>} />
+                        <Route path="/glossary"  element={<AnimatedPage><GlossaryPage /></AnimatedPage>} />
+                        <Route path="/docs"      element={<AnimatedPage><DocsPage /></AnimatedPage>} />
                     </Routes>
                 </AnimatePresence>
             </main>
