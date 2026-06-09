@@ -5,6 +5,7 @@ import App from "./App";
 import ScrollToTop from "./components/ScrollToTop";
 import "./styles/global.css";
 import "./styles/quiz.css";
+import "./styles/glossary.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
